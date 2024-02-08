@@ -102,7 +102,7 @@
         filter: drop-shadow(13px 15px 16px #000000);
     }
 
-    .adverbs {
+    .adverbs, #jewellery_store_button {
         filter: text-shadow(1px);
         background-image: linear-gradient(rgba(2, 18, 83, 0), rgba(181, 177, 246, 0), rgba(2, 18, 83, 0));
         border-color: rgba(0, 0, 0, 0);
@@ -110,7 +110,7 @@
         backkdrop-filter: blur(10px);
     }
 
-    .adverbs:hover {
+    .adverbs:hover, #jewellery_store_button:hover {
         background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
         border-color: rgba(0, 0, 0, 0);
         backkdrop-filter: blur(10px);
