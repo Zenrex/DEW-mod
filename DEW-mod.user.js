@@ -16,6 +16,39 @@
 (function() {
     'use strict';
 
+    // Create a new div element
+    var newDivElement = document.createElement('div');
+
+    // Set class attribute for the new div element
+    newDivElement.setAttribute('class', 'image_icon');
+
+    // Create a new img element
+    var newImgElement = document.createElement('img');
+
+    // Set the source attribute of the img element
+    newImgElement.src = 'https://github.com/Zenrex/DEW-mod/blob/main/image.psd.png?raw=true';
+    newImgElement.style.maxWidth = '64px';
+    newImgElement.style.maxHeight = '64px';
+
+    // Append the img element as a child to the new div
+    newDivElement.appendChild(newImgElement);
+
+    // Find the parent element where you want to append the new div
+    var parentElement = document.getElementById('jewellery_store_button');
+
+    // Check if the parent element exists
+    if (parentElement) {
+        // Append the new div as a child to the parent element
+        parentElement.appendChild(newDivElement);
+
+        // Add the class "adverbs" to the "jewellery_store_button" element
+        parentElement.classList.add("adverbs");
+    } else {
+        // Handle the case where the parent element is not found
+        console.error("Parent element not found.");
+    }
+
+
     // Your custom CSS styles
     var customStyles = `
 
@@ -25,7 +58,7 @@
         font-family: 'Roboto';
     }
 
-    #hello_2, #how_total_list_button, #closing_div_total, #helloUser, #total_points_score_list_title, #total_english_ranking, #show_total_list_button, #davidSatler, #coins_image {
+    #hello_2, #how_total_list_button, #closing_div_total, #helloUser, #total_points_score_list_title, #total_english_ranking, #show_total_list_button, #davidSatler, #coins_image, #coins_explanation_button {
         display: none;
     }
 
@@ -102,20 +135,35 @@
         filter: drop-shadow(13px 15px 16px #000000);
     }
 
-    .adverbs, #jewellery_store_button {
+    #adverbs, #jewellery_store_button, #coins_title {
         filter: text-shadow(1px);
         background-image: linear-gradient(rgba(2, 18, 83, 0), rgba(181, 177, 246, 0), rgba(2, 18, 83, 0));
         border-color: rgba(0, 0, 0, 0);
         transition: transform 0.3s ease-out;
-        backkdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
     }
-
-    .adverbs:hover, #jewellery_store_button:hover {
+    
+    #adverbs:hover, #jewellery_store_button:hover, #coins_title:hover {
         background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
         border-color: rgba(0, 0, 0, 0);
-        backkdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
         expand: 1.1;
         box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    }
+    
+    #jewellery_store_button {
+        border-radius: 27px; /* Corrected property name */
+        font-family: 'Fredoka One', cursive; /* Added missing semicolon */
+        color: rgba(0, 0, 0, 1);
+        font-size: 20px;
+    }
+
+    #coins_title {
+        font-family: 'Fredoka One', cursive;
+        position: absolute;
+        display: flex;
+        left: 10px;
+        top: 10px;
     }
 
     .glow-on-hover:after, .glow-on-hover:before {
@@ -183,19 +231,31 @@
 
     document.body.innerHTML = document.body.innerHTML.replace('TOTAL POINTS: ', '');
     document.body.innerHTML = document.body.innerHTML.replace(`
-    TOTAL ASSIGNMENT POINTS: `, "");
+    TOTAL ASSIGNMENT POINTS: `, "Points: ");
 
         // Find the elements with the IDs "coins_title" and "box"
-    var coinsTitleElement = document.getElementById("coins_title");
+    var jewElement = document.getElementById("jewellery_store_button");
     var boxElement = document.getElementById("box");
 
     // Check if both elements exist
-    if (coinsTitleElement && boxElement) {
-        // Set "coins_title" as the parent of "box" by appending "box" as a child of "coins_title"
-        coinsTitleElement.appendChild(boxElement);
+    if (jewElement && boxElement) {
+        // Append the custom styles to the box element
+        boxElement.appendChild(jewElement);
     } else {
         // Handle the case where one or both of the elements are not found
-        console.error("One or both elements not found.");
+        console.error("jew or box not found.");
+    }
+
+        // Find the element with the ID "coins_title"
+    var jew2Element = document.getElementById("jewellery_store_button");
+
+    // Check if the element exists
+    if (jew2Element) {
+        // Add the class "glow-on-hover" to the element
+        jew2Element.classList.add("adverbs");
+    } else {
+        // Handle the case where the element is not found
+        console.error("Element with ID 'jewellery_store_button' not found.");
     }
 
     var styleElement = document.createElement('style');
