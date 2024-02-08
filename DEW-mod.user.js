@@ -63,6 +63,7 @@
     }
 
     #total_english_points, #total_points, #selectedAssignment {
+        z-index: 9999;
         background-image: linear-gradient(rgba(30, 30, 46, 0), rgba(30, 30, 46, 0));
         border: none;
         color: rgb(0, 0, 0) !important;
@@ -197,6 +198,8 @@
     }
 
     .list_item_total, .list_item_first, .list_item_second, .list_item_third {
+        font-weight: 300;
+        font-family: 'Fredoka One', cursive;
         position: relative;
         transition: transform 0.3s ease-out;
         background-image: linear-gradient(rgba(109, 109, 104, 0), rgba(0, 0, 0, 0));
