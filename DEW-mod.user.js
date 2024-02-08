@@ -25,7 +25,7 @@
         font-family: 'Roboto';
     }
 
-    #hello_2, #how_total_list_button, #closing_div_total, #helloUser, #total_points_score_list_title, #total_english_ranking, #show_total_list_button, #davidSatler {
+    #hello_2, #how_total_list_button, #closing_div_total, #helloUser, #total_points_score_list_title, #total_english_ranking, #show_total_list_button, #davidSatler, #coins_image {
         display: none;
     }
 
@@ -184,6 +184,19 @@
     document.body.innerHTML = document.body.innerHTML.replace('TOTAL POINTS: ', '');
     document.body.innerHTML = document.body.innerHTML.replace(`
     TOTAL ASSIGNMENT POINTS: `, "");
+
+        // Find the elements with the IDs "coins_title" and "box"
+    var coinsTitleElement = document.getElementById("coins_title");
+    var boxElement = document.getElementById("box");
+
+    // Check if both elements exist
+    if (coinsTitleElement && boxElement) {
+        // Set "coins_title" as the parent of "box" by appending "box" as a child of "coins_title"
+        coinsTitleElement.appendChild(boxElement);
+    } else {
+        // Handle the case where one or both of the elements are not found
+        console.error("One or both elements not found.");
+    }
 
     var styleElement = document.createElement('style');
     styleElement.type = 'text/css';
