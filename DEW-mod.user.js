@@ -26,7 +26,7 @@
     var newImgElement = document.createElement('img');
 
     // Set the source attribute of the img element
-    newImgElement.src = 'https://github.com/Zenrex/DEW-mod/blob/main/image.psd.png?raw=true';
+    newImgElement.src = 'https://github.com/Zenrex/DEW-mod/blob/main/jewshop.png?raw=true';
     newImgElement.style.maxWidth = '64px';
     newImgElement.style.maxHeight = '64px';
 
