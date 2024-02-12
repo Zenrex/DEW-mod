@@ -212,17 +212,17 @@
         display: flex;
         position: absolute;
         max-width: 50%;
-        top: 50px;
-        left: 10px;
+        top: 15px;
+        left: 25px;
         font-size: 20px;
         font-family: 'Fredoka One', cursive;
         color: rgb(0, 0, 0);
+        transition: transform 0.3s ease-out;
     }
 
     #StatusBar:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
         backdrop-filter: blur(1px);
-        
     }
     `;
 
