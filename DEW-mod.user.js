@@ -58,7 +58,7 @@
         font-family: 'Roboto';
     }
 
-    #hello_2, #how_total_list_button, #closing_div_total, #helloUser, #total_points_score_list_title, #total_english_ranking, #show_total_list_button, #davidSatler, #coins_image, #coins_explanation_button, #coin_container {
+    #total_english_main, #coins_title, #hello_2, #how_total_list_button, #closing_div_total, #helloUser, #total_points_score_list_title, #total_english_ranking, #show_total_list_button, #davidSatler, #coins_image, #coins_explanation_button, #coin_container,#jewellery_store_button {
         display: none;
     }
 
@@ -123,8 +123,10 @@
     #royalty_image {
         display: flex;
         position: absolute;
+        max-height: 35%;
         bottom: 15;
         left: 10;
+        filter: drop-shadow(13px 15px 16px #000000);
     }
 
     #royalty_image:hover {
@@ -136,7 +138,7 @@
         filter: drop-shadow(13px 15px 16px #000000);
     }
 
-    #adverbs, #jewellery_store_button, #coins_title {
+    .adverbs, #jewellery_store_button, #coins_title {
         filter: text-shadow(1px);
         background-image: linear-gradient(rgba(2, 18, 83, 0), rgba(181, 177, 246, 0), rgba(2, 18, 83, 0));
         border-color: rgba(0, 0, 0, 0);
@@ -144,7 +146,7 @@
         backdrop-filter: blur(10px);
     }
     
-    #adverbs:hover, #jewellery_store_button:hover, #coins_title:hover {
+    .adverbs:hover, #jewellery_store_button:hover, #coins_title:hover {
         background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
         border-color: rgba(0, 0, 0, 0);
         backdrop-filter: blur(10px);
@@ -157,14 +159,6 @@
         font-family: 'Fredoka One', cursive; /* Added missing semicolon */
         color: rgba(0, 0, 0, 1);
         font-size: 20px;
-    }
-
-    #coins_title {
-        font-family: 'Fredoka One', cursive;
-        position: absolute;
-        display: flex;
-        left: 10px;
-        top: 10px;
     }
 
     .glow-on-hover:after, .glow-on-hover:before {
@@ -219,6 +213,23 @@
         font-family: 'Roboto';
         backdrop-filter : blur(5px);
     }
+
+    #StatusBar {
+        display: flex;
+        position: absolute;
+        max-width: 50%;
+        top: 50px;
+        left: 10px;
+        font-size: 20px;
+        font-family: 'Fredoka One', cursive;
+        color: rgb(0, 0, 0);
+    }
+
+    #StatusBar:hover {
+        transform: scale(1.1);
+        backdrop-filter: blur(1px);
+        
+    }
     `;
 
     if (window.location.href !== 'https://practiseenglishonline.com/starting_page.php') {
@@ -232,39 +243,61 @@
         }
     }
 
-    document.body.innerHTML = document.body.innerHTML.replace('TOTAL POINTS: ', '');
-    document.body.innerHTML = document.body.innerHTML.replace(`
-    TOTAL ASSIGNMENT POINTS: `, "Points: ");
-
-        // Find the elements with the IDs "coins_title" and "box"
-    var jewElement = document.getElementById("jewellery_store_button");
-    var boxElement = document.getElementById("box");
-
-    // Check if both elements exist
-    if (jewElement && boxElement) {
-        // Append the custom styles to the box element
-        boxElement.appendChild(jewElement);
-    } else {
-        // Handle the case where one or both of the elements are not found
-        console.error("jew or box not found.");
+    if (window.location.href === "https://practiseenglishonline.com/starting_page.php") {
+        try {
+            // get values for status bar
+            // Select the span element with the class "total"
+            var totalPoints = document.querySelector('#total_english_points .total').textContent;
+            var totalRank = document.querySelector('#total_english_ranking .total').textContent;
+            var totalCoins = document.querySelector('#coins_title .total').textContent;
+            var totalFlames = document.querySelector('#flame_number').textContent;
+        } catch (error) {
+            console.log("(Value collection) StatusBar Error: " + error);
+        }
     }
 
-        // Find the element with the ID "coins_title"
-    var jew2Element = document.getElementById("jewellery_store_button");
+    // Function to redirect to assignments page
+    function redirect_to_assignments() {
+        window.location.href = "/jewellery_store.php"; // Replace "/assignments" with the actual URL of the assignments page
+    }
 
-    // Check if the element exists
-    if (jew2Element) {
-        // Add the class "glow-on-hover" to the element
-        jew2Element.classList.add("adverbs");
-    } else {
-        // Handle the case where the element is not found
-        console.error("Element with ID 'jewellery_store_button' not found.");
+    if (window.location.href === "https://practiseenglishonline.com/starting_page.php") {
+        try {
+            // Create and append HTML elements
+            var JewDiv = document.createElement("div");
+            JewDiv.classList.add("adverbs");
+            JewDiv.onclick = redirect_to_assignments;
+            JewDiv.innerHTML = '<div>Jewlery Shop</div><div class="image_icon"><img src="https://raw.githubusercontent.com/Zenrex/DEW-mod/5741d56fb2deaaa92ad999bd210a851f5ff02328/jewshop.png" height="64"></div>';
+            // Append to the document body
+            document.getElementById("box").appendChild(JewDiv);
+        } catch (error) {
+            console.log("JewDiv Error: " + error);
+        }
+    }
+
+    
+    if (window.location.href === "https://practiseenglishonline.com/starting_page.php") {
+            try {
+
+            // add status bar
+            // Create and append HTML elements
+            var StatusBar = document.createElement("div");
+            //StatusBar.classList.add("adverbs");
+            StatusBar.id = "StatusBar"
+            StatusBar.onclick = redirect_to_assignments;
+            StatusBar.innerHTML = '<div> Total Points: ' + totalPoints + ' Total Rank: ' + totalRank + ' Total Coins: ' + totalCoins + ' Total Flames: ' + totalFlames + ' </div>';
+            // Append to the document body
+            document.body.appendChild(StatusBar);
+        } catch (error) {
+            console.log("StatusBar Error: " + error);
+        }
     }
 
     var styleElement = document.createElement('style');
     styleElement.type = 'text/css';
     styleElement.innerHTML = customStyles;
     document.head.appendChild(styleElement);
+
 
     var currentURL = window.location.href;
 })();
