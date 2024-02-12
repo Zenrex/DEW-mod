@@ -52,12 +52,6 @@
     // Your custom CSS styles
     var customStyles = `
 
-    body {
-        background-image: url('https://images.pling.com/img/00/00/61/26/90/1572780/6402aa69d949d3e0d2acc536db770c91361691c2d9987dcdd27ca4b3535dcbe06c97.jpg') !important;
-        background-size: cover !important; /* Optional: Adjust background size */
-        font-family: 'Roboto';
-    }
-
     #total_english_main, #coins_title, #hello_2, #how_total_list_button, #closing_div_total, #helloUser, #total_points_score_list_title, #total_english_ranking, #show_total_list_button, #davidSatler, #coins_image, #coins_explanation_button, #coin_container,#jewellery_store_button {
         display: none;
     }
@@ -115,7 +109,7 @@
         right: 10;
         background-color: rgba(0, 0, 0, 0);
         border-color: rgba(0, 0, 0, 0);
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(2px);
         corner-radius: 27px;
         font-family: 'Roboto';
     }
