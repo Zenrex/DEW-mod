@@ -9,8 +9,8 @@
 // @match        https://practiseenglishonline.com/assignments.php
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=practiseenglishonline.com
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/Zenrex/DEW-mod/main/DEW.mod.js
-// @updateURL    https://raw.githubusercontent.com/Zenrex/DEW-mod/main/DEW.mod.js
+// @downloadURL  https://github.com/Zenrex/DEW-mod/raw/main/DEW-mod.user.js
+// @updateURL    https://github.com/Zenrex/DEW-mod/raw/main/DEW-mod.user.js
 // ==/UserScript==
 
 (function() {
